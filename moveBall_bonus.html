@@ -1,0 +1,121 @@
+<html>
+  <head></head>
+  <body id="canvas">
+<div id="ball" style="
+  z-index:5;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:rgb(108, 202, 108)"></div>
+
+  <div id="ball2" style="
+  z-index:5;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:rgb(110, 110, 238)"></div>
+
+  <div id="ball3" style="
+  z-index:5;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:rgb(235, 94, 94)"></div>
+
+</body>
+</html>
+
+<script>
+
+var velocityX = 5;
+var velocityY = 3;
+var positionX = 0;
+var positionY = 0;
+var ball = document.getElementById('ball');
+
+var velocityX2 = 9;
+var velocityY2 = 6;
+var positionX2 = 0;
+var positionY2 = 0;
+var ball2 = document.getElementById('ball2');
+
+var velocityX3 = 2;
+var velocityY3 = 7;
+var positionX3 = 0;
+var positionY3 = 0;
+var ball3 = document.getElementById('ball3');
+
+// YOUR CODE 
+
+const canvas = document.getElementById('canvas');
+const ballWidth = parseInt(ball.style.width);
+const ball2Width = parseInt(ball2.style.width);
+const ball3Width = parseInt(ball3.style.width);
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+  function moveBall(){
+  positionX = positionX + velocityX;
+  ball.style.left = positionX + "px";
+
+  positionY = positionY + velocityY;
+  ball.style.top = positionY + "px";
+
+  if(positionX > (canvas.width - ballWidth) || positionX <=  0){
+  velocityX = - velocityX;
+  console.log(positionX);
+console.log(canvas.width);
+console.log(ballWidth);
+}
+if(positionY > (canvas.height - ballWidth) || positionY <=  0){
+  velocityY = - velocityY;
+}
+
+} 
+function moveBall2(){
+  positionX2 = positionX2 + velocityX2;
+  ball2.style.left = positionX2 + "px";
+
+  positionY2 = positionY2 + velocityY2;
+  ball2.style.top = positionY2 + "px";
+
+  if(positionX2 > (canvas.width - ball2Width) || positionX2 <=  0){
+  velocityX2 = - velocityX2;
+}
+if(positionY2 > (canvas.height - ball2Width) || positionY2 <=  0){
+  velocityY2 = - velocityY2;
+}
+
+} 
+
+function moveBall3(){
+  positionX3 = positionX3 + velocityX3;
+  ball3.style.left = positionX3 + "px";
+
+  positionY3 = positionY3 + velocityY3;
+  ball3.style.top = positionY3 + "px";
+
+  if(positionX3 > (canvas.width - ball3Width) || positionX3 <=  0){
+  velocityX3 = - velocityX3;
+}
+if(positionY3 > (canvas.height - ball3Width) || positionY3 <=  0){
+  velocityY3 = - velocityY3;
+}
+
+} 
+setInterval(moveBall,10);
+setInterval(moveBall2,10);
+setInterval(moveBall3,10);
+
+// ----------------
+</script>
